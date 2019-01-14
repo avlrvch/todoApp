@@ -6,44 +6,24 @@
 
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="false" />
-    <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
-        <default-action-ref name ="index"></default-action-ref>
-        <action name="index" class="ua.net.azhytnytskyi.action.ToDoListAction">
+    <constant name="struts.devMode" value="true" />
 
-            <result name="success">index.jsp</result>
+    <package name="" namespace="/" extends="struts-default">
+        <action name="toDoStart">
+            <result>index.jsp</result>
         </action>
-        <action name="add"
-                class="ua.net.azhytnytskyi.action.ToDoListAction" method="addNewToDoEntry">
-            <result name="success" type="chain">index</result>
-            <result name="input" type="chain">index</result>
-        </action>
-
-        <action name="delete"
-                class="ua.net.azhytnytskyi.action.ToDoListAction" method="deleteToDoEntry">
-            <result name="success" type="chain">index</result>
-
-        </action>
-        <action name="getAll"
-                class="ua.net.azhytnytskyi.action.ToDoListAction" method="getAllEntries">
-            <result name="success" type="chain">index</result>
-
-        </action>
-        <action name="edit"
-                class="ua.net.azhytnytskyi.action.ToDoListAction" method="editToDoEntry">
-            <result name="success" type="chain">index</result>
-
-        </action>
-
-        <action name="updateList"
+        <action name="getStarted"
                 class="ua.net.azhytnytskyi.action.ToDoListAction">
-            <result name="success">update.jsp</result>
+            <result name="success">welcome.jsp</result>
         </action>
-        <action name="toDoList" method="toDoList"
-                class="ua.net.azhytnytskyi.action.ToDoListAction" >
-            <result name="success">index.jsp</result>
+        <action name="addToDo"
+            class="ua.net.azhytnytskyi.action.ToDoListAction" method="add">
+            <result name="success">welcome.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="delete"
+                class="ua.net.azhytnytskyi.action.ToDoListAction" method="delete">
+            <result name="success">welcome.jsp</result>
         </action>
     </package>
 

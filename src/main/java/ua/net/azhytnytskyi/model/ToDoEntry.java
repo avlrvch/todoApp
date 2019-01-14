@@ -1,6 +1,6 @@
 package ua.net.azhytnytskyi.model;
 
-public class ToDoEntry extends Entry{
+public class ToDoEntry{
 
     private String description;
     private Status status;
@@ -8,9 +8,6 @@ public class ToDoEntry extends Entry{
     public ToDoEntry(String description) {
         this.description = description;
         this.status = Status.IN_PROGRESS;
-    }
-
-    public ToDoEntry() {
     }
 
     public String getDescription() {

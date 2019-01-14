@@ -9,6 +9,6 @@ public interface AbstractDao<T> {
     public void create(T t);
     public void edit(T oldValue, T newValue);
     public void delete(T t);
-    public Entry getElement(T t);
+    public T getElement(T t);
     public List<T> getAll();
 }

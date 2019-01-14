@@ -1,6 +1,5 @@
 package ua.net.azhytnytskyi.dao;
 
-import ua.net.azhytnytskyi.model.Entry;
 import ua.net.azhytnytskyi.model.ToDoEntry;
 
 import java.util.ArrayList;
