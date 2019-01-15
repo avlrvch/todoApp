@@ -10,20 +10,24 @@
 
     <package name="" namespace="/" extends="struts-default">
         <action name="toDoStart">
-            <result>index.jsp</result>
+            <result>/pages/welcome.jsp</result>
         </action>
         <action name="getStarted"
                 class="ua.net.azhytnytskyi.action.ToDoListAction">
-            <result name="success">welcome.jsp</result>
+            <result name="success">/pages/welcome.jsp</result>
         </action>
         <action name="addToDo"
             class="ua.net.azhytnytskyi.action.ToDoListAction" method="add">
-            <result name="success">welcome.jsp</result>
-            <result name="error">error.jsp</result>
+            <result name="success">/pages/welcome.jsp</result>
+            <result name="error">/pages/error.jsp</result>
         </action>
         <action name="delete"
                 class="ua.net.azhytnytskyi.action.ToDoListAction" method="delete">
-            <result name="success">welcome.jsp</result>
+            <result name="success">/pages/welcome.jsp</result>
+        </action>
+        <action name="save"
+                class="ua.net.azhytnytskyi.action.ToDoListAction" method="save">
+            <result name="success">/pages/welcome.jsp</result>
         </action>
     </package>
 

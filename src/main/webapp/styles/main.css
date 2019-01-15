@@ -1,0 +1,43 @@
+
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: whitesmoke;
+	padding-left: 5%;
+	color: lightslategrey;
+}
+
+.label{
+	font-size: 20px;
+}
+.headedBanner{
+	font-size: 100px;
+	font-style: italic;
+	padding-left: 0 !important;
+	text-align: center;
+}
+.createNewTodo{
+	font-size: 50px;
+	padding-left: 0 !important;
+	text-align: center;
+	padding-top: 40px;
+}
+
+table.wwFormTable{
+	display: inline-block;
+}
+form#save{
+	text-align: center;
+}
+
+input, select{
+	width: 500px;
+}
+input{
+	height: 20px;
+}
+
+input[type='submit']{
+	float: right;
+	width: 100px;
+}

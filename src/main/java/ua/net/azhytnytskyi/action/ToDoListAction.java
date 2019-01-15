@@ -1,55 +1,62 @@
 package ua.net.azhytnytskyi.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.ServletActionContext;
 import ua.net.azhytnytskyi.model.ToDoEntry;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
+import ua.net.azhytnytskyi.service.ToDoEntryService;
 import java.util.List;
 
-public class ToDoListAction extends ActionSupport {
+/**
+ * Provides methods and fields required to perform crud operations with ToDoEntry model
+ */
+public class ToDoListAction extends ActionSupport{
 
-    public List<ToDoEntry> toDoList = new ArrayList();
-    public List<String> statusL = new ArrayList();
+    private ToDoEntryService toDoEntryService = ToDoEntryService.INSTANCE;
+    private List<ToDoEntry> toDoList = toDoEntryService.getAllToDoRecords();
 
-//    private ToDoEntry toDoEntry;
+    // TODO: 1/15/19 replace model var's with model driven behavior
+    private String description;
+    private ToDoEntry.Status status;
+    private int id;
+    private ToDoEntry.Status[] statuses = ToDoEntry.Status.values();
 
-    ToDoEntry td1 = new ToDoEntry("task1");
-    ToDoEntry td2 = new ToDoEntry("task2");
-    {
-        td2.setStatus(ToDoEntry.Status.DONE);
-        toDoList.add(td1);
-        toDoList.add(td2);
-
-        statusL.add("In Progress");
-        statusL.add("Done");
+    /**
+     * Default execute method
+     * @return Success/Error
+     */
+    public String execute() {
+        return SUCCESS;
     }
 
+    /**
+     * Creates new to do entry
+     * @return Success/Error
+     */
     public String add(){
-        HttpServletRequest request = ServletActionContext.getRequest();
-        String description = request.getParameter("description");
         if(!description.equals("")){
-            ToDoEntry toDoEntry = new ToDoEntry(description);
-            toDoList.add(toDoEntry);
+            toDoEntryService.addToDoRecord(description);
             return SUCCESS;
         } else {
             return ERROR;
         }
     }
 
-    public String delete(){
-        HttpServletRequest request = ServletActionContext.getRequest();
-        String description = request.getParameter("description");
-        System.out.println(description);
-        for(ToDoEntry toDoEntry : toDoList){
-            if(toDoEntry.getDescription() == description){
-                toDoList.remove(toDoEntry);
-            }
-        }
+    /**
+     * Saves the to do entry by passed id, description and status
+     * @return Success/Error
+     */
+    public String save(){
+        System.out.println(id);
+        toDoEntryService.saveToDo(id, description, status);
         return SUCCESS;
     }
-    public String execute() {
+
+    /**
+     * Deletes to do entry by passed params
+     * To be implemented
+     * TODO: 1/16/19 implement method and establish binding with jsp
+     * @return
+     */
+    public String delete(){
         return SUCCESS;
     }
 
@@ -61,19 +68,35 @@ public class ToDoListAction extends ActionSupport {
         this.toDoList = toDoList;
     }
 
-    public List<String> getStatusL() {
-        return statusL;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStatusL(List<String> statusL) {
-        this.statusL = statusL;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-//    public ToDoEntry getToDoEntry() {
-//        return toDoEntry;
-//    }
-//
-//    public void setToDoEntry(ToDoEntry toDoEntry) {
-//        this.toDoEntry = toDoEntry;
-//    }
+    public ToDoEntry.Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(ToDoEntry.Status status) {
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ToDoEntry.Status[] getStatuses() {
+        return statuses;
+    }
+
+    public void setStatuses(ToDoEntry.Status[] statuses) {
+        this.statuses = statuses;
+    }
 }

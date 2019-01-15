@@ -5,6 +5,10 @@ import ua.net.azhytnytskyi.model.ToDoEntry;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides mocked data storage for to do entries
+ * TODO: 1/16/19 replace with real db queries
+ */
 public class ToDoEntryDao implements AbstractDao<ToDoEntry> {
 
     private List<ToDoEntry> mockedDataList = new ArrayList<ToDoEntry>();
