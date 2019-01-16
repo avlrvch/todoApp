@@ -7,7 +7,7 @@
 <body>
     <h3>
         Ooooops! Something went wrong.
-        <a href="welcome.jsp">Try Again </a>
+        <a href="/pages/welcome.jsp">Try Again </a>
     </h3>
 </body>
 </html>

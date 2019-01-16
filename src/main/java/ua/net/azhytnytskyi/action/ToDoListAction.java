@@ -45,9 +45,12 @@ public class ToDoListAction extends ActionSupport{
      * @return Success/Error
      */
     public String save(){
-        System.out.println(id);
-        toDoEntryService.saveToDo(id, description, status);
-        return SUCCESS;
+        if(!description.equals("")){
+            toDoEntryService.saveToDo(id, description, status);
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
     }
 
     /**
