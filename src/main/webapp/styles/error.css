@@ -1,0 +1,17 @@
+body {
+    background-color: whitesmoke;
+    color: lightslategrey;
+}
+
+.errorMsgContainer{
+    text-align: center;
+    padding-top: 50px;
+}
+
+h3{
+    font-size: 40px;
+    color: darkred !important;
+}
+a.backLink{
+    font-size: 30px;
+}

@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/styles/error.css"/>
 <html>
 <head>
     <title>Error</title>
 </head>
 <body>
-    <h3>
-        Ooooops! Something went wrong.
-        <a href="/pages/welcome.jsp">Try Again </a>
-    </h3>
+    <div class="errorMsgContainer">
+        <h3>Ooops, something went wrong</h3>
+        <a href="${pageContext.request.contextPath}/pages/welcome.jsp" class="backLink">Try Again </a>
+    </div>
 </body>
 </html>
