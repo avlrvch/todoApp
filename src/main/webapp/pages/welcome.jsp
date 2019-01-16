@@ -1,11 +1,12 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+
 <html>
 
 <body>
-    <div class="headedBanner">
-        ToDo App
-    </div>
+    <s:div class="headedBanner">
+        <s:label name="ToDo App"/>
+    </s:div>
 
     <s:div class="createNewToDo">
         <s:label value="Create new TODO:"/>
@@ -27,6 +28,6 @@
             </s:form>
             <br>
         </s:iterator>
-
 </body>
+
 </html>
